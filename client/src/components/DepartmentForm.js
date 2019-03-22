@@ -4,18 +4,29 @@ import axios from 'axios';
 
 
 class DepartmentForm extends React.Component {
-  defaultValue = {name: " "};
+  defaultValues = {name: " "};
   state = {...this.defaultValue, };
+  
 
-  handleSubmit = (e) => {
-    e.preventDefault();
-    const department = { ...this.state, };
-    axios.post("/api/departments", department)
-    .then( res => {
-      this.props.history.goBack();
-    })
-    this.setState({...this.defaultValues, })
-  }
+componentDidMount() {
+  if (this.props.id)
+  this.setState({ name: this.props.name})
+}  
+//   handleSubmit = (e) => {
+//     e.preventDefault();
+//     const department = { ...this.state, };
+//     if (department.id)
+// {axios.put("/api/departments")
+//     .then( res => {
+//       this.props.
+//     })
+//     else
+//     axios.post("/api/departments", department)
+//     .then( res => {
+//       this.props.history.goBack();
+//     })
+//     this.setState({...this.defaultValues, })
+//   }
 
   handleChange = (e) => {
     const { target: {name, value, } } = e;
@@ -24,6 +35,7 @@ class DepartmentForm extends React.Component {
 
   render() {
     const {name} = this.state
+    const {editing}= this.props
 
     return (
       <div>
@@ -44,7 +56,8 @@ class DepartmentForm extends React.Component {
           <br />
           <br />
           <br />
-        <Button onClick={this.props.history.goBack}color="black">Back</Button>
+          { editing ? null :
+          <Button onClick={this.props.history.goBack}color="black">Back</Button> }
       </div>
     )
   }

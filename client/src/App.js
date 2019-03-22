@@ -7,6 +7,8 @@ import {Container} from "semantic-ui-react";
 import Navbar from './components/Navbar';
 import Departments from './components/Departments'
 import DepartmentForm from './components/DepartmentForm'
+import DepartmentView from './components/DepartmentView'
+import Items from './components/Items'
 
 
 const App = () => (
@@ -16,8 +18,10 @@ const App = () => (
       <Switch>
         <Route exact path="/" component={Home} />
         <Route exact path="/about" component={About} />
-        <Route exact path="/departments" component={Departments} />
+        <Route exact path="/api/departments" component={Departments} />
         <Route exact path="/departments/new" component={DepartmentForm} />
+        <Route exact path="/api/departments/:id" component={DepartmentView} />
+        
         <Route component={NoMatch} />
       </Switch>
     </Container>
