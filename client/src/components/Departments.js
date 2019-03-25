@@ -50,9 +50,11 @@ class Departments extends React.Component {
         <Card.Content>
           <Card.Header>{department.name}</Card.Header>
           { this.state.editing ? <DepartmentForm name={department.name} id={department.id} updateDepartment={this.updateDepartment} editing={this.state.editing}/> : null }
-          <Button icon color="blue" onClick={this.toggleForm} >
+          <Button as={Link} to={`/api/departments/${department.id}`} icon color="black">
+          <Icon name="eye" /></Button>
+          <Button icon color="black" onClick={this.toggleForm} >
           <Icon name="pencil" /></Button>
-          <Button icon color="red" onClick={ () => this.removeDepartment(department.id)}>
+          <Button icon color="black" onClick={ () => this.removeDepartment(department.id)}>
           <Icon name="trash" /></Button>
     
         </Card.Content>
@@ -65,7 +67,7 @@ class Departments extends React.Component {
       <div>
         <Header as="h1">Departments</Header>
         <br />
-        <Button as={Link} to={"/departments/new"} color="green">Add Department</Button>
+        <Button as={Link} to={"/departments/new"} color="olive">Add Department</Button>
         <br />
         <br />
         <Card.Group>

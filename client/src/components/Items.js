@@ -32,10 +32,10 @@ class Items extends React.Component {
           <Card.Header>{item.name}</Card.Header>
           <Card.Meta> {item.price}</Card.Meta>
           <Card.Description> {item.description}</Card.Description>
-          <Button icon color="red" onClick ={ () => this.removeItem(item.id)}>
+          <Button icon color="black" onClick ={ () => this.removeItem(item.id)}>
           <Icon name="trash" />
           </Button>
-          <Button icon color="blue">
+          <Button icon color="black">
           <Icon name="pencil"/>
           </Button>
         </Card.Content>

@@ -4,6 +4,7 @@ import {Button, Header, Icon } from "semantic-ui-react";
 import {Link} from "react-router-dom"
 import Items from './Items'
 import ItemForm from './ItemForm'
+import Styled from "styled-components"
 
 class DepartmentView extends React.Component {
   state= { department: {}, showItems: false, addItem: false, };
@@ -24,18 +25,20 @@ render() {
   const {department} = this.state
   return (
     <div>
+      
       <Header as="h1">Department: { department.name }</Header>
         <Button onClick={this.toggleItems} color="olive">
         {this.state.showItems ? "Hide Items" :
           "View Items" }
         </Button>
+        <Button color = "yellow" onClick={this.toggleAdd}>{this.state.addItem ? "Hide Form" :"Add Item"}
+        </Button>
         <Button icon color="violet" >
           <Icon name="pencil" /></Button>
-        <Button icon color="yellow">
+        <Button icon color="red">
           <Icon name="trash" />
         </Button>
-        <Button color = "green" onClick={this.toggleAdd}>{this.state.addItem ? "Hide Form" :"Add Item"}
-        </Button>
+       
         <br />
         <br />
         {this.state.addItem ? <ItemForm toggleAdd={this.toggleAdd} department={this.state.department}/> : null }

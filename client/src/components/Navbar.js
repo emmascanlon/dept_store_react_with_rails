@@ -14,7 +14,7 @@ const Navbar = () => (
       About
     </Menu.Item>
     </Link>
-    <Link to="/departments">
+    <Link to="/api/departments">
     <Menu.Item>
       Departments
     </Menu.Item>
